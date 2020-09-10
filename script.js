@@ -7,12 +7,12 @@ function randomInt(max) {
 
   return Math.floor(Math.random() * max)
 }
-//Function to returns a random lower case number
+//Function to returns a random lowercase number
 function generateRandomLower() {
   var alphebet = 'abcdefghijklmnopqrstuvwxyz';
   return alphebet[randomInt(alphebet.length)]
 }
-//Function that returns a random upper case number
+//Function that returns a random uppercase number
 function generateRandomUpper() {
   var alphebet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   return alphebet[randomInt(alphebet.length)]
@@ -42,8 +42,8 @@ function getUserSpecs() {
   while (true) {
     characterTypes[0] = confirm("Would you like your password to contain numbers?");
     characterTypes[1] = confirm("Would you like your password to contain special characters? ($, %, ^, ect)");
-    characterTypes[2] = confirm("Would you like your password to contain lowercase letter?");
-    characterTypes[3] = confirm("Would you like your password to contain uppercase letter?");
+    characterTypes[2] = confirm("Would you like your password to contain lowercase letters?");
+    characterTypes[3] = confirm("Would you like your password to contain uppercase letters?");
     if (characterTypes.indexOf(true) > -1) {
       break;
     }
