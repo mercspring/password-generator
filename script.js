@@ -1,5 +1,16 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var copyBtn = document.querySelector("#copy-to-clip");
+
+//
+function copyPassword(){
+  
+ var passwordText = document.querySelector("#password");
+ passwordText.select();
+ passwordText.setSelectionRange(0,99999); 
+
+ document.execCommand("copy");
+}
 
 //Generate password
 // generate a random number between zero and specified max
@@ -84,4 +95,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+copyBtn.addEventListener("click", copyPassword);
 
