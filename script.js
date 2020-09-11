@@ -3,13 +3,13 @@ var generateBtn = document.querySelector("#generate");
 var copyBtn = document.querySelector("#copy-to-clip");
 
 //
-function copyPassword(){
-  
- var passwordText = document.querySelector("#password");
- passwordText.select();
- passwordText.setSelectionRange(0,99999); 
+function copyPassword() {
 
- document.execCommand("copy");
+  var passwordText = document.querySelector("#password");
+  passwordText.select();
+  passwordText.setSelectionRange(0, 99999);
+
+  document.execCommand("copy");
 }
 
 //Generate password
@@ -45,9 +45,11 @@ function generateRandomNum() {
 function getUserSpecs() {
   var characterTypes = [];
   characterTypes[4] = "0";
-  while ((characterTypes[4]  < 8) || (characterTypes[4]  > 128) || isNaN(characterTypes[4])) {
-    characterTypes[4]  = prompt("How many characters would you like your password to have? (must between 8 and 128)");
-    console.log(characterTypes[4]);
+  while ((characterTypes[4] < 8) || (characterTypes[4] > 128) || isNaN(characterTypes[4])) {
+    characterTypes[4] = prompt("How many characters would you like your password to have? (must between 8 and 128)");
+    if ((characterTypes[4] < 8) || (characterTypes[4] > 128) || isNaN(characterTypes[4])) {
+      alert("Please enter an integer between 8 and 128");
+    }
   }
 
   while (true) {
@@ -57,7 +59,10 @@ function getUserSpecs() {
     characterTypes[3] = confirm("Would you like your password to contain uppercase letters?");
     if (characterTypes.indexOf(true) > -1) {
       break;
+    } else {
+      alert("You must select at least one option");
     }
+
   }
   return characterTypes
 }
@@ -65,6 +70,9 @@ function getUserSpecs() {
 function generatePassword() {
   var password = "";
   var userSpecs = getUserSpecs();
+  if (userSpecs === null) {
+    return
+  }
 
   for (i = 0; i < userSpecs[4]; i++) {
     if (userSpecs[3] && (password.length < userSpecs[4])) {
