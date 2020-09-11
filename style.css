@@ -39,7 +39,7 @@ header {
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
-  padding: 30px 40px;
+  padding: 30px 40px 10px 40px;
 }
 
 .card-header::after {
@@ -118,11 +118,30 @@ button[disabled] {
   overflow: hidden;
 }
 
+.blurred-text{
+  color: transparent;
+  text-shadow: 0 0 10px #000005;
+}
+
+.blurred-text:hover{
+  color:black;
+  text-shadow: none;
+}
+
+footer{
+  height: 30px;
+  text-align: center;
+  padding-top: 10px;
+}
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
+  }
+  footer{
+    font-size: 1rem;
   }
 
   #password {
@@ -132,6 +151,9 @@ button[disabled] {
 
 @media (max-width: 500px) {
   .btn {
+    font-size: 0.8rem;
+  }
+  footer{
     font-size: 0.8rem;
   }
 }

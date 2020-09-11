@@ -89,7 +89,11 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
+  document.querySelector("#password").classList.add("blurred-text");
+
   passwordText.value = password;
+
+  document.querySelector("#copy-to-clip").disabled = false;
 
 }
 
